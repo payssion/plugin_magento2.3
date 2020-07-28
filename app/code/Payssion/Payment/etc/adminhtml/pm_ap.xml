@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © 2016 Payssion All rights reserved.
+ */
+-->
+<include xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_include.xsd">
+    <include path="Payssion_Payment::pm/alipay_cn.xml" />
+    <include path="Payssion_Payment::pm/tenpay_cn.xml" />
+    <include path="Payssion_Payment::pm/unionpay_cn.xml" />
+    <include path="Payssion_Payment::pm/enets_sg.xml" />
+    <include path="Payssion_Payment::pm/singpost_sg.xml" />
+    <include path="Payssion_Payment::pm/molpay.xml" />
+    <include path="Payssion_Payment::pm/maybank2u_my.xml" />
+    <include path="Payssion_Payment::pm/fpx_my.xml" />
+    <include path="Payssion_Payment::pm/cimb_my.xml" />
+    <include path="Payssion_Payment::pm/hlb_my.xml" />
+    <include path="Payssion_Payment::pm/rhb_my.xml" />
+    <include path="Payssion_Payment::pm/amb_my.xml" />
+    <include path="Payssion_Payment::pm/affinepg_my.xml" />
+    <include path="Payssion_Payment::pm/doku_id.xml" />
+    <include path="Payssion_Payment::pm/atmva_id.xml" />
+    <include path="Payssion_Payment::pm/dragonpay_ph.xml" />
+    <include path="Payssion_Payment::pm/poli_au.xml" />
+    <include path="Payssion_Payment::pm/poli_nz.xml" />
+</include>
