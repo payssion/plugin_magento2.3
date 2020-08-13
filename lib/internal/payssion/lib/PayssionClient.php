@@ -264,7 +264,7 @@ class PayssionClient
         curl_setopt($ch, CURLOPT_URL, $this->api_url. $method);
         curl_setopt($ch, CURLOPT_POST, true);
        
-        if (is_array($vars)) $vars = http_build_query($vars, '', '&');
+        if (is_array($vars)) $vars = json_encode($vars);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $vars);
         
         curl_setopt($ch, CURLOPT_HEADER, false);
@@ -308,7 +308,7 @@ class PayssionClient
     	$headers = array(
     			'X-Payssion-Client-User-Agent: ' . json_encode($ua),
     			"User-Agent: Payssion/php/$langVersion/" . self::VERSION,
-    			'Content-Type: application/x-www-form-urlencoded',
+    			'Content-Type: application/json',
     	);
     	
     	return $headers;

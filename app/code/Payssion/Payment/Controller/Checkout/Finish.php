@@ -61,14 +61,14 @@ class Finish extends \Magento\Framework\App\Action\Action
         }
         
         $orderModel = $this->_objectManager->get('Magento\Sales\Model\Order');
+        $order = null;
         if(isset($params['order_id'])) {
         	$order = $orderModel->loadByIncrementId($params['order_id']);
-
-            $orderIncrementId = $params['order_id'];
-            $objectManager  =  \Magento\Framework\App\ObjectManager::getInstance();
-            $payssion_obj   = $objectManager->create('Payssion\Payment\Model\Log')->load($orderIncrementId,'order_id');
-            $payssion_state = $payssion_obj->getState();
-            $this->writeLog('payssion.txt',$payssion_state,'finish');
+//             $orderIncrementId = $params['order_id'];
+//             $objectManager  =  \Magento\Framework\App\ObjectManager::getInstance();
+//             $payssion_obj   = $objectManager->create('Payssion\Payment\Model\Log')->load($orderIncrementId,'order_id');
+//             $payssion_state = $payssion_obj->getState();
+//            $this->writeLog('payssion.txt',$payssion_state,'finish');
         }
         
         if (empty($order)) {
@@ -76,13 +76,18 @@ class Finish extends \Magento\Framework\App\Action\Action
         	$this->_logger->critical('Invalid return, no transactionId specified', $params);
         	$resultRedirect->setPath('checkout/cart');
         } else {
-
-            if(!empty($payssion_state) && $payssion_state=='completed'){
+            if (0 == $order->getBaseTotalDue()) {
                 $this->_getCheckoutSession()->start();
                 $resultRedirect->setPath('checkout/onepage/success');
-            }else{
+            } else {
                 $resultRedirect->setPath('checkout/cart');
             }
+//             if(!empty($payssion_state) && $payssion_state=='completed'){
+//                 $this->_getCheckoutSession()->start();
+//                 $resultRedirect->setPath('checkout/onepage/success');
+//             }else{
+//                 $resultRedirect->setPath('checkout/cart');
+//             }
         }
         
         return $resultRedirect;

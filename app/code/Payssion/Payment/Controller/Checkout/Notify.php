@@ -60,9 +60,8 @@ class Notify extends \Magento\Framework\App\Action\Action  implements CsrfAwareA
 
     public function execute()
     {
-        $params = $this->getRequest()->getParams();
-
-        if(empty($params['pm_id'])){
+        $params = json_decode($this->getRequest()->getContent(), true);
+        if(empty($params['pm_id'])) {
             exit('order not found');
         }
 
@@ -156,11 +155,10 @@ class Notify extends \Magento\Framework\App\Action\Action  implements CsrfAwareA
         $transaction->beforeSave();
         $transaction->save();
 
-
-        $objectManager  =  \Magento\Framework\App\ObjectManager::getInstance();
-        $payssion = $objectManager->create('\Payssion\Payment\Model\Log');
-        $payssion->addData($params);
-        $payssion->save();
+//         $objectManager  =  \Magento\Framework\App\ObjectManager::getInstance();
+//         $payssion = $objectManager->create('\Payssion\Payment\Model\Log');
+//         $payssion->addData($params);
+//         $payssion->save();
 
         $this->_email->send($order); //发送订单确认邮件
 
