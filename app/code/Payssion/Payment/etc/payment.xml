@@ -75,6 +75,9 @@
         <method name="payssion_payment_cimb_my">
             <allow_multiple_address>0</allow_multiple_address>
         </method>
+        <method name="payssion_payment_creditcard_kr">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
         <method name="payssion_payment_creditcard_jp">
             <allow_multiple_address>0</allow_multiple_address>
         </method>
@@ -91,6 +94,9 @@
             <allow_multiple_address>0</allow_multiple_address>
         </method>
         <method name="payssion_payment_dragonpay_ph">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="payssion_payment_ebanking_kr">
             <allow_multiple_address>0</allow_multiple_address>
         </method>
         <method name="payssion_payment_efecty_co">
@@ -127,6 +133,12 @@
             <allow_multiple_address>0</allow_multiple_address>
         </method>
         <method name="payssion_payment_itau_br">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="payssion_payment_kakaopay_kr">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="payssion_payment_klarna">
             <allow_multiple_address>0</allow_multiple_address>
         </method>
         <method name="payssion_payment_m1_sg">

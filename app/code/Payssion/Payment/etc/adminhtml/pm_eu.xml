@@ -5,6 +5,7 @@
  */
 -->
 <include xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_include.xsd">
+    <include path="Payssion_Payment::pm/klarna.xml" />
     <include path="Payssion_Payment::pm/sofort.xml" />
     <include path="Payssion_Payment::pm/giropay_de.xml" />
     <include path="Payssion_Payment::pm/ideal_nl.xml" />

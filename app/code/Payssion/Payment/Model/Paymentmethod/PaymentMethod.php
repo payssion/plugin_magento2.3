@@ -57,43 +57,46 @@ abstract class PaymentMethod extends AbstractMethod
         endforeach;
         $products_purchased = implode('|', $skus);
 
-
-
         $notify_url = $url->getUrl('payssion/checkout/notify/');
         $return_url = $url->getUrl('payssion/checkout/finish/');
 
-        $data = array(
-        		'source' => 'magento2',
-        		'amount' => number_format($total, 2),
-        		'currency' => $currency,
-        		'pm_id' => $this->getPMID(),
-        		'order_id' => $order_id,
-                'description' => "Items # ".$products_purchased,
-        		'ip' => $order->getRemoteIp(),
-        		'notify_url' => $notify_url,
-        		'return_url' => $return_url,
-        );
-        
-        $billing_address = $order->getBillingAddress();
-        if ($billing_address) {
-        	$data['payer_name'] = $billing_address['firstname'] . ' ' . $billing_address['lastname'];
-        	$data['payer_email'] = $billing_address['email'];
-        }
-        
+        $pm_id = $this->getPMID();
         $data = array(
         	'source' => 'magento2',
             'amount' => number_format($total, 2),
             'currency' => $currency,
-            'pm_id' => $this->getPMID(),
-        	'payer_name' => $billing_address['firstname'] . ' ' . $billing_address['lastname'],
-        	'payer_email' => $billing_address['email'],
+            'pm_id' => $pm_id,
         	'order_id' => $order_id,
-//            'description' => "Order # $order_id",
-            'description' => "Items # ".$products_purchased,
+            'payer_name' => $order->getCustomerName(),
+            'payer_email' => $order->getCustomerEmail(),
+            'description' => "Order #$order_id",
         	'ip' => $order->getRemoteIp(),
         	'notify_url' => $notify_url,
         	'return_url' => $return_url,
         );
+        
+        $address = $order->getBillingAddress();
+        if ($address) {
+            $data['billing_address'] = [
+                'organization_name' => $address->getCompany(),
+                'first_name'        => $address->getFirstname(),
+                'last_name'         => $address->getLastname(),
+                'email'             => $address->getEmail(),
+                "phone"             => $address->getTelephone(),
+                "line1"             => $address->getStreetLine(1),
+                "line2"             => $address->getStreetLine(2),
+                'postal_code'       => $address->getPostcode(),
+                'city'              => $address->getCity(),
+                'region'            => $address->getRegion(),
+                'country'           => $address->getCountryId(),
+            ];
+        } else {
+            die ('no billing address');
+        }
+        
+        if (true/*substr($pm_id, 0, strlen('klarna')) === 'klarna'*/) {
+            $data['order_items'] = $this->getOrderLines($order);
+        }
 
         if (!class_exists('PayssionClient')) {
         	$config = \Magento\Framework\App\Filesystem\DirectoryList::getDefaultConfig();
@@ -108,6 +111,145 @@ abstract class PaymentMethod extends AbstractMethod
         } else {
         	throw new \Exception($response['description']);
         }
+    }
+    
+    /**
+     * Get Order lines of Order
+     *
+     * @param Mage_Sales_Model_Order $order
+     *
+     * @return array
+     */
+    private function getOrderLines($order)
+    {
+        $orderLines = array();
+        $tax = 0;
+        /** @var Mage_Sales_Model_Order_Item $item */
+        foreach ($order->getAllVisibleItems() as $item) {
+            
+            /**
+             * The total amount of the line, including VAT and discounts
+             * Should Match: (unitPrice × quantity) - discountAmount
+             * NOTE: TotalAmount can differ from actutal Total Amount due to rouding in tax or exchange rate
+             */
+            $totalAmount = $item->getRowTotal() - $item->getDiscountAmount()
+            + $item->getTaxAmount() + $item->getHiddenTaxAmount();
+            
+            /**
+             * The total discount amount of the line.
+             */
+            $discountAmount = $item->getDiscountAmount();
+            
+            /**
+             * The price of a single item including VAT in the order line.
+             * Calculated back from the totalAmount + discountAmount to overcome rounding issues.
+             */
+            $unitPrice = round(($totalAmount + $discountAmount) / $item->getQtyOrdered(), 2);
+            
+            /**
+             * The amount of VAT on the line.
+             * Should Match: totalAmount × (vatRate / (100 + vatRate)).
+             * Due to Mollie API requirements, we calculate this instead of using $item->getTaxAmount() to overcome
+             * any rouding issues.
+             */
+            $vatAmount = round($totalAmount * ($item->getTaxPercent() / (100 + $item->getTaxPercent())), 2);
+            $tax += $vatAmount;
+            
+            $orderLine = array(
+                'type'        => $item->getProduct()->getTypeId() != 'downloadable' ? 'physical' : 'digital',
+                'name'        => preg_replace("/[^A-Za-z0-9 -]/", "", $item->getName()),
+                'quantity'    => round($item->getQtyOrdered()),
+                'unit_price'  => $unitPrice,
+                'amount'      => $totalAmount,
+                'tax_rate'    => sprintf("%.2f", $item->getTaxPercent()),
+                'tax_amount'  => $vatAmount,
+                'sku'         => $item->getProduct()->getSku(),
+                'product_url' => $item->getProduct()->getProductUrl()
+            );
+            
+            if ($discountAmount) {
+                $orderLine['discount_amount'] = $discountAmount;
+            }
+            
+            $orderLines[] = $orderLine;
+        }
+        
+        if (!$order->getIsVirtual()) {
+            /**
+             * The total amount of the line, including VAT and discounts
+             * NOTE: TotalAmount can differ from actutal Total Amount due to rouding in tax or exchange rate
+             */
+            $totalAmount = $this->_getTotalAmountShipping($order);
+            $vatRate = $this->_getShippingVatRate($order);
+            
+            /**
+             * The amount of VAT on the line.
+             * Should Match: totalAmount × (vatRate / (100 + vatRate)).
+             * Due to Mollie API requirements, we recalculare this from totalAmount
+             */
+            $vatAmount = round($totalAmount * ($vatRate / (100 + $vatRate)), 2);
+            $tax += $vatAmount;
+            
+            $orderLines[] = array(
+                'type'        => 'shipping',
+                'name'        => preg_replace("/[^A-Za-z0-9 -]/", "", $order->getShippingDescription()),
+                'quantity'    => 1,
+                'unit_price'  => $totalAmount,
+                'amount'      => $totalAmount,
+                'tax_rate'    => sprintf("%.2f", $vatRate),
+                'tax_amount'  => $vatAmount,
+                'sku'         => $item->getSku(),
+            );
+        }
+        
+        if ($tax > 0) {
+            $orderLines[] = [
+                "type" => "tax",
+                "description" => "Tax",
+                "amount" => $tax
+            ];
+        }
+        
+        $discount = $order->getDiscountAmount();;
+        if ($discount > 0) {
+            $orderLines[] = array(
+                'type'        => 'discount',
+                'name'        => 'Discount',
+                'quantity'    => 1,
+                'unit_price'  => $discount,
+                'amount'      => $discount,
+            );
+        }
+        
+        return $orderLines;
+    }
+    
+    /**
+     * @param Mage_Sales_Model_Order $order
+     * @param                        $forceBaseCurrency
+     *
+     * @return float
+     */
+    protected function _getTotalAmountShipping($order)
+    {
+        return $order->getShippingAmount()
+        + $order->getShippingTaxAmount()
+        + $order->getShippingHiddenTaxAmount();
+    }
+    
+    /**
+     * @param Mage_Sales_Model_Order $order
+     *
+     * @return double
+     */
+    protected function _getShippingVatRate($order)
+    {
+        $taxPercentage = 0;
+        if ($order->getShippingAmount() > 0) {
+            $taxPercentage = ($order->getShippingTaxAmount() / $order->getShippingAmount()) * 100;
+        }
+        
+        return $taxPercentage;
     }
     
     private function getPMID() {

@@ -8,6 +8,9 @@
     <include path="Payssion_Payment::pm/alipay_cn.xml" />
     <include path="Payssion_Payment::pm/tenpay_cn.xml" />
     <include path="Payssion_Payment::pm/unionpay_cn.xml" />
+    <include path="Payssion_Payment::pm/creditcard_kr.xml" />
+    <include path="Payssion_Payment::pm/ebanking_kr.xml" />
+    <include path="Payssion_Payment::pm/kakaopay_kr.xml" />
     <include path="Payssion_Payment::pm/enets_sg.xml" />
     <include path="Payssion_Payment::pm/singpost_sg.xml" />
     <include path="Payssion_Payment::pm/molpay.xml" />
