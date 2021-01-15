@@ -60,6 +60,9 @@
         <method name="payssion_payment_boleto_br">
             <allow_multiple_address>0</allow_multiple_address>
         </method>
+        <method name="payssion_payment_boost_my">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
         <method name="payssion_payment_caixa_br">
             <allow_multiple_address>0</allow_multiple_address>
         </method>
@@ -121,6 +124,9 @@
             <allow_multiple_address>0</allow_multiple_address>
         </method>
         <method name="payssion_payment_giropay_de">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="payssion_payment_grabpay_my">
             <allow_multiple_address>0</allow_multiple_address>
         </method>
         <method name="payssion_payment_hlb_my">
@@ -241,6 +247,9 @@
             <allow_multiple_address>0</allow_multiple_address>
         </method>
         <method name="payssion_payment_tm_tw">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="payssion_payment_touchngo_my">
             <allow_multiple_address>0</allow_multiple_address>
         </method>
         <method name="payssion_payment_truemoney_th">

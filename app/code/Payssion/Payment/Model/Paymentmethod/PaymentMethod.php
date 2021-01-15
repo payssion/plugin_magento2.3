@@ -132,13 +132,12 @@ abstract class PaymentMethod extends AbstractMethod
              * Should Match: (unitPrice × quantity) - discountAmount
              * NOTE: TotalAmount can differ from actutal Total Amount due to rouding in tax or exchange rate
              */
-            $totalAmount = $item->getRowTotal() - $item->getDiscountAmount()
-            + $item->getTaxAmount() + $item->getHiddenTaxAmount();
+            $totalAmount = $this->getTotalAmountOrderItem($item);
             
             /**
              * The total discount amount of the line.
              */
-            $discountAmount = $item->getDiscountAmount();
+            $discountAmount = $this->getDiscountAmountOrderItem($item);
             
             /**
              * The price of a single item including VAT in the order line.
@@ -160,14 +159,14 @@ abstract class PaymentMethod extends AbstractMethod
                 'name'        => preg_replace("/[^A-Za-z0-9 -]/", "", $item->getName()),
                 'quantity'    => round($item->getQtyOrdered()),
                 'unit_price'  => $unitPrice,
-                'amount'      => $totalAmount,
+                'amount'      => $totalAmount + $discountAmount,
                 'tax_rate'    => sprintf("%.2f", $item->getTaxPercent()),
                 'tax_amount'  => $vatAmount,
                 'sku'         => $item->getProduct()->getSku(),
                 'product_url' => $item->getProduct()->getProductUrl()
             );
             
-            if ($discountAmount) {
+            if (false/*$discountAmount*/) {
                 $orderLine['discount_amount'] = $discountAmount;
             }
             
@@ -179,8 +178,8 @@ abstract class PaymentMethod extends AbstractMethod
              * The total amount of the line, including VAT and discounts
              * NOTE: TotalAmount can differ from actutal Total Amount due to rouding in tax or exchange rate
              */
-            $totalAmount = $this->_getTotalAmountShipping($order);
-            $vatRate = $this->_getShippingVatRate($order);
+            $totalAmount = $this->getTotalAmountShipping($order);
+            $vatRate = $this->getShippingVatRate($order);
             
             /**
              * The amount of VAT on the line.
@@ -210,8 +209,8 @@ abstract class PaymentMethod extends AbstractMethod
             ];
         }
         
-        $discount = $order->getDiscountAmount();;
-        if ($discount > 0) {
+        $discount = $order->getDiscountAmount();
+        if ($discount < 0) {
             $orderLines[] = array(
                 'type'        => 'discount',
                 'name'        => 'Discount',
@@ -221,7 +220,31 @@ abstract class PaymentMethod extends AbstractMethod
             );
         }
         
+        //die(print_r($orderLines, true));
         return $orderLines;
+    }
+    
+    /**
+     * @param OrderItemInterface $item
+     *
+     * @return float
+     */
+    private function getTotalAmountOrderItem($item)
+    {
+        return $item->getRowTotal()
+        - $item->getDiscountAmount()
+        + $item->getTaxAmount()
+        + $item->getDiscountTaxCompensationAmount();
+    }
+    
+    /**
+     * @param OrderItemInterface $item
+     *
+     * @return float
+     */
+    private function getDiscountAmountOrderItem($item)
+    {
+        return abs($item->getDiscountAmount() + $item->getDiscountTaxCompensationAmount());
     }
     
     /**
@@ -230,11 +253,11 @@ abstract class PaymentMethod extends AbstractMethod
      *
      * @return float
      */
-    protected function _getTotalAmountShipping($order)
+    protected function getTotalAmountShipping($order)
     {
         return $order->getShippingAmount()
         + $order->getShippingTaxAmount()
-        + $order->getShippingHiddenTaxAmount();
+        + $order->getShippingDiscountTaxCompensationAmount();
     }
     
     /**
@@ -242,7 +265,7 @@ abstract class PaymentMethod extends AbstractMethod
      *
      * @return double
      */
-    protected function _getShippingVatRate($order)
+    protected function getShippingVatRate($order)
     {
         $taxPercentage = 0;
         if ($order->getShippingAmount() > 0) {
