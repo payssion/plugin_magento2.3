@@ -204,6 +204,9 @@
         <method name="payssion_payment_poli_nz">
             <allow_multiple_address>0</allow_multiple_address>
         </method>
+        <method name="payssion_payment_promptpay_th">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
         <method name="payssion_payment_pse_co">
             <allow_multiple_address>0</allow_multiple_address>
         </method>
@@ -228,6 +231,9 @@
         <method name="payssion_payment_sberbank_ru">
             <allow_multiple_address>0</allow_multiple_address>
         </method>
+        <method name="payssion_payment_shopeepay_th">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
         <method name="payssion_payment_singpost_sg">
             <allow_multiple_address>0</allow_multiple_address>
         </method>
@@ -250,6 +256,9 @@
             <allow_multiple_address>0</allow_multiple_address>
         </method>
         <method name="payssion_payment_tenpay_cn">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="payssion_payment_thaiqr_th">
             <allow_multiple_address>0</allow_multiple_address>
         </method>
         <method name="payssion_payment_tm_tw">

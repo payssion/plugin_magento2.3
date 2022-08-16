@@ -703,6 +703,17 @@
                 <allowspecific>1</allowspecific>
                 <specificcountry>NZ</specificcountry>
             </payssion_payment_poli_nz>
+            <payssion_payment_promptpay_th>
+                <active>0</active>
+                <title>PromptPay</title>
+                <order_status>pending_payment</order_status>
+                <instructions></instructions>
+                <payment_action>order</payment_action>
+                <model>Payssion\Payment\Model\Paymentmethod\Promptpayth</model>
+                <group>payssion_payment</group>
+                <allowspecific>1</allowspecific>
+                <specificcountry>TH</specificcountry>
+            </payssion_payment_promptpay_th>
             <payssion_payment_pse_co>
                 <active>0</active>
                 <title>PSE</title>
@@ -791,6 +802,17 @@
                 <allowspecific>1</allowspecific>
                 <specificcountry>RU</specificcountry>
             </payssion_payment_sberbank_ru>
+            <payssion_payment_shopeepay_th>
+                <active>0</active>
+                <title>Shopeepay</title>
+                <order_status>pending_payment</order_status>
+                <instructions></instructions>
+                <payment_action>order</payment_action>
+                <model>Payssion\Payment\Model\Paymentmethod\Shoeepayth</model>
+                <group>payssion_payment</group>
+                <allowspecific>1</allowspecific>
+                <specificcountry>TH</specificcountry>
+            </payssion_payment_shopeepay_th>
             <payssion_payment_singpost_sg>
                 <active>0</active>
                 <title>Singpost</title>
@@ -879,6 +901,17 @@
                 <allowspecific>1</allowspecific>
                 <specificcountry>CN</specificcountry>
             </payssion_payment_tenpay_cn>
+            <payssion_payment_thaiqr_th>
+                <active>0</active>
+                <title>Thai QR</title>
+                <order_status>pending_payment</order_status>
+                <instructions></instructions>
+                <payment_action>order</payment_action>
+                <model>Payssion\Payment\Model\Paymentmethod\Thaiqrth</model>
+                <group>payssion_payment</group>
+                <allowspecific>1</allowspecific>
+                <specificcountry>TH</specificcountry>
+            </payssion_payment_thaiqr_th>
             <payssion_payment_tm_tw>
                 <active>0</active>
                 <title>TM</title>
