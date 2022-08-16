@@ -84,6 +84,9 @@
         <method name="payssion_payment_creditcard_jp">
             <allow_multiple_address>0</allow_multiple_address>
         </method>
+        <method name="payssion_payment_creditcard_mx">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
         <method name="payssion_payment_davivienda_co">
             <allow_multiple_address>0</allow_multiple_address>
         </method>
@@ -235,6 +238,9 @@
             <allow_multiple_address>0</allow_multiple_address>
         </method>
         <method name="payssion_payment_sofort">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="payssion_payment_spei_mx">
             <allow_multiple_address>0</allow_multiple_address>
         </method>
         <method name="payssion_payment_starhub_sg">

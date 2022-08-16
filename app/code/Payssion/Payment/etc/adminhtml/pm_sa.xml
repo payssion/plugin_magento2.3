@@ -9,8 +9,11 @@
     <include path="Payssion_Payment::pm/itau_br.xml" />
     <include path="Payssion_Payment::pm/caixa_br.xml" />
     <include path="Payssion_Payment::pm/santander_br.xml" />
+    <include path="Payssion_Payment::pm/oxxo_mx.xml" />
+    <include path="Payssion_Payment::pm/spei_mx.xml" />
     <include path="Payssion_Payment::pm/banamex_mx.xml" />
     <include path="Payssion_Payment::pm/bancomer_mx.xml" />
+    <include path="Payssion_Payment::pm/creditcard_mx.xml" />
     <include path="Payssion_Payment::pm/efecty_co.xml" />
     <include path="Payssion_Payment::pm/pse_co.xml" />
     <include path="Payssion_Payment::pm/davivienda_co.xml" />

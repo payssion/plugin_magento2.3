@@ -266,6 +266,17 @@
                 <allowspecific>1</allowspecific>
                 <specificcountry>JP</specificcountry>
             </payssion_payment_creditcard_jp>
+            <payssion_payment_creditcard_mx>
+                <active>0</active>
+                <title>Credit card</title>
+                <order_status>pending_payment</order_status>
+                <instructions></instructions>
+                <payment_action>order</payment_action>
+                <model>Payssion\Payment\Model\Paymentmethod\Creditcardmx</model>
+                <group>payssion_payment</group>
+                <allowspecific>1</allowspecific>
+                <specificcountry>MX</specificcountry>
+            </payssion_payment_creditcard_mx>
             <payssion_payment_davivienda_co>
                 <active>0</active>
                 <title>Davivienda</title>
@@ -824,6 +835,17 @@
                 <allowspecific>1</allowspecific>
                 <specificcountry>AT,BE,DE,IT,NL,SK,ES,CH</specificcountry>
             </payssion_payment_sofort>
+            <payssion_payment_spei_mx>
+                <active>0</active>
+                <title>SPEI</title>
+                <order_status>pending_payment</order_status>
+                <instructions></instructions>
+                <payment_action>order</payment_action>
+                <model>Payssion\Payment\Model\Paymentmethod\SPEImx</model>
+                <group>payssion_payment</group>
+                <allowspecific>1</allowspecific>
+                <specificcountry>MX</specificcountry>
+            </payssion_payment_spei_mx>
             <payssion_payment_starhub_sg>
                 <active>0</active>
                 <title>Starhub</title>
