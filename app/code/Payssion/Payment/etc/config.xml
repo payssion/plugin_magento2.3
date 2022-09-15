@@ -808,7 +808,7 @@
                 <order_status>pending_payment</order_status>
                 <instructions></instructions>
                 <payment_action>order</payment_action>
-                <model>Payssion\Payment\Model\Paymentmethod\Shoeepayth</model>
+                <model>Payssion\Payment\Model\Paymentmethod\Shopeepayth</model>
                 <group>payssion_payment</group>
                 <allowspecific>1</allowspecific>
                 <specificcountry>TH</specificcountry>

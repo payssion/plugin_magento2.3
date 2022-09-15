@@ -124,10 +124,6 @@ class Notify extends \Magento\Framework\App\Action\Action  implements CsrfAwareA
         $check_sig = md5($check_msg);
         $notify_sig = $params['notify_sig'];
         
-        if ($notify_sig != $check_sig) {
-            echo 'check_msg=' . substr($check_msg, 0, -20) . ",check_sig=$check_sig";
-        }
-        
         return $notify_sig == $check_sig;
     }
 
