@@ -17,7 +17,8 @@ class Notify extends \Magento\Framework\App\Action\Action  implements CsrfAwareA
      *
      * @var \Payssion\Payment\Model\Config
      */
-    protected $_config;
+    protected $_api_key;
+    protected $_secret_key;
 
     /**
      * @var Session
@@ -50,7 +51,8 @@ class Notify extends \Magento\Framework\App\Action\Action  implements CsrfAwareA
         Email $email
     )
     {
-        $this->_config = $config;
+        $this->_api_key = $config->getApiKey();
+        $this->_secret_key = $config->getSecretKey();
         $this->_checkoutSession = $checkoutSession;
         $this->_logger = $logger;
         $this->_email = $email;
@@ -105,24 +107,27 @@ class Notify extends \Magento\Framework\App\Action\Action  implements CsrfAwareA
             }
 
         } else {
-            echo 'failed to check api_sig';
+            echo 'failed to check api_sig' . print_r($params, true);
         }
     }
     
     protected function validateNotify($params)
     {
         $check_parameters = array(
-            $this->_config->getApiKey(),
+            $this->_api_key,
             $params['pm_id'],
             $params['amount'],
             $params['currency'],
             $params['order_id'],
             $params['state'],
-            $this->_config->getSecretKey()
+            $this->_secret_key
         );
         $check_msg = implode('|', $check_parameters);
         $check_sig = md5($check_msg);
         $notify_sig = $params['notify_sig'];
+        if ($notify_sig != $check_sig) {
+            echo "notify_sig=$notify_sig, check_sig=$check_sig";
+        }
         
         return $notify_sig == $check_sig;
     }
@@ -195,7 +200,6 @@ class Notify extends \Magento\Framework\App\Action\Action  implements CsrfAwareA
             fclose($handle);
         }
     }
-
 
     public function createCsrfValidationException(RequestInterface $request): ? InvalidRequestException
     {

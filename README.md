@@ -1,6 +1,6 @@
-# Payssion Magento2.3.x plugin
+# Payssion Magento2.3-2.4 plugin
 
-This extension is for Magento 2.3.x
+This extension is for Magento 2.3 and 2.4
 
 ### Quickstart
 
