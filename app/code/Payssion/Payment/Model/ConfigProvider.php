@@ -105,6 +105,7 @@ class ConfigProvider implements ConfigProviderInterface
     	'payssion_payment_tm_tw',
     	'payssion_payment_unionpay_cn',
     	'payssion_payment_verkkopankki_fi',
+        'payssion_payment_vietqr_vn',
     	'payssion_payment_vtcpay_vn',
     	'payssion_payment_webmoney',
     	'payssion_payment_webpay_cl',

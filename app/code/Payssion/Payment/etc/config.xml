@@ -978,6 +978,17 @@
                 <allowspecific>1</allowspecific>
                 <specificcountry>FI</specificcountry>
             </payssion_payment_verkkopankki_fi>
+            <payssion_payment_vietqr_vn>
+                <active>0</active>
+                <title>VietQR</title>
+                <order_status>pending_payment</order_status>
+                <instructions></instructions>
+                <payment_action>order</payment_action>
+                <model>Payssion\Payment\Model\Paymentmethod\Vietqrvn</model>
+                <group>payssion_payment</group>
+                <allowspecific>1</allowspecific>
+                <specificcountry>VN</specificcountry>
+            </payssion_payment_vietqr_vn>
             <payssion_payment_vtcpay_vn>
                 <active>0</active>
                 <title>VTCPay</title>

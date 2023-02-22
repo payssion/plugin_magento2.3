@@ -101,6 +101,7 @@ define(
             {type: 'payssion_payment_tm_tw', component: defaultComponent},
             {type: 'payssion_payment_unionpay_cn', component: defaultComponent},
             {type: 'payssion_payment_verkkopankki_fi', component: defaultComponent},
+            {type: 'payssion_payment_vietqr_vn', component: defaultComponent},
             {type: 'payssion_payment_vtcpay_vn', component: defaultComponent},
             {type: 'payssion_payment_webmoney', component: defaultComponent},
             {type: 'payssion_payment_webpay_cl', component: defaultComponent},

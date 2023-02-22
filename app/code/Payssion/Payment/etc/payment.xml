@@ -279,6 +279,9 @@
         <method name="payssion_payment_verkkopankki_fi">
             <allow_multiple_address>0</allow_multiple_address>
         </method>
+        <method name="payssion_payment_vietqr_vn">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
         <method name="payssion_payment_vtcpay_vn">
             <allow_multiple_address>0</allow_multiple_address>
         </method>
