@@ -11,6 +11,7 @@
     <include path="Payssion_Payment::pm/creditcard_kr.xml" />
     <include path="Payssion_Payment::pm/ebanking_kr.xml" />
     <include path="Payssion_Payment::pm/kakaopay_kr.xml" />
+    <include path="Payssion_Payment::pm/paynow_sg.xml" />
     <include path="Payssion_Payment::pm/enets_sg.xml" />
     <include path="Payssion_Payment::pm/singpost_sg.xml" />
     <include path="Payssion_Payment::pm/molpay.xml" />
@@ -29,8 +30,11 @@
     <include path="Payssion_Payment::pm/shopeepay_th.xml" />
     <include path="Payssion_Payment::pm/doku_id.xml" />
     <include path="Payssion_Payment::pm/atmva_id.xml" />
+    <include path="Payssion_Payment::pm/gcash_ph.xml" />
     <include path="Payssion_Payment::pm/dragonpay_ph.xml" />
     <include path="Payssion_Payment::pm/vietqr_vn.xml" />
     <include path="Payssion_Payment::pm/poli_au.xml" />
     <include path="Payssion_Payment::pm/poli_nz.xml" />
+    <include path="Payssion_Payment::pm/bankcard_tr.xml" />
+    <include path="Payssion_Payment::pm/banktransfer_tr.xml" />
 </include>

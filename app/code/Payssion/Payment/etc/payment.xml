@@ -45,13 +45,22 @@
         <method name="payssion_payment_bancontact_be">
             <allow_multiple_address>0</allow_multiple_address>
         </method>
-        <method name="payssion_payment_bancard_ru">
+        <method name="payssion_payment_bankcard_ru">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="payssion_payment_bankcard_tr">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="payssion_payment_banktransfer_tr">
             <allow_multiple_address>0</allow_multiple_address>
         </method>
         <method name="payssion_payment_bitcash_jp">
             <allow_multiple_address>0</allow_multiple_address>
         </method>
         <method name="payssion_payment_bitcoin">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="payssion_payment_blik_pl">
             <allow_multiple_address>0</allow_multiple_address>
         </method>
         <method name="payssion_payment_boacompra">
@@ -192,10 +201,19 @@
         <method name="payssion_payment_paybybankapp_gb">
             <allow_multiple_address>0</allow_multiple_address>
         </method>
+        <method name="payssion_payment_paynow_sg">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
         <method name="payssion_payment_paysafecard">
             <allow_multiple_address>0</allow_multiple_address>
         </method>
+        <method name="payssion_payment_payupl">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
         <method name="payssion_payment_paysbuy_th">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="payssion_payment_pix_br">
             <allow_multiple_address>0</allow_multiple_address>
         </method>
         <method name="payssion_payment_poli_au">
