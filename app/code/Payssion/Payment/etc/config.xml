@@ -150,6 +150,7 @@
                 <group>payssion_payment</group>
                 <allowspecific>1</allowspecific>
                 <specificcountry>TR</specificcountry>
+            </payssion_payment_bankcard_tr>
             <payssion_payment_banktransfer_tr>
                 <active>0</active>
                 <title>Bank card</title>
