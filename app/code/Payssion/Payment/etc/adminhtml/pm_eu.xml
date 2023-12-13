@@ -22,7 +22,7 @@
     <include path="Payssion_Payment::pm/qiwi.xml" />
     <include path="Payssion_Payment::pm/bankcard_ru.xml" />
     <include path="Payssion_Payment::pm/webmoney.xml" />
-    <include path="Payssion_Payment::pm/yamoney.xml" />
-    <include path="Payssion_Payment::pm/sberbank_ru.xml" />
+    <include path="Payssion_Payment::pm/yoomoney_ru.xml" />
+    <include path="Payssion_Payment::pm/sberpay_ru.xml" />
     <include path="Payssion_Payment::pm/alfaclick_ru.xml" />
 </include>

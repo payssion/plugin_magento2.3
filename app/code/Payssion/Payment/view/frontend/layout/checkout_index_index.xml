@@ -62,10 +62,16 @@
                                                                         <item name="payssion_payment_cimb_my" xsi:type="array">
                                                                             <item name="isBillingAddressRequired" xsi:type="boolean">false</item>
                                                                         </item>
+                                                                        <item name="payssion_payment_creditcard_id" xsi:type="array">
+                                                                            <item name="isBillingAddressRequired" xsi:type="boolean">false</item>
+                                                                        </item>
                                                                         <item name="payssion_payment_creditcard_kr" xsi:type="array">
                                                                             <item name="isBillingAddressRequired" xsi:type="boolean">false</item>
                                                                         </item>
                                                                         <item name="payssion_payment_creditcard_mx" xsi:type="array">
+                                                                            <item name="isBillingAddressRequired" xsi:type="boolean">false</item>
+                                                                        </item>
+                                                                        <item name="payssion_payment_dana_id" xsi:type="array">
                                                                             <item name="isBillingAddressRequired" xsi:type="boolean">false</item>
                                                                         </item>
                                                                         <item name="payssion_payment_ebanking_kr" xsi:type="array">
@@ -104,6 +110,9 @@
                                                                         <item name="payssion_payment_klarna" xsi:type="array">
                                                                             <item name="isBillingAddressRequired" xsi:type="boolean">true</item>
                                                                         </item>
+                                                                        <item name="payssion_payment_linkaja_id" xsi:type="array">
+                                                                            <item name="isBillingAddressRequired" xsi:type="boolean">true</item>
+                                                                        </item>
                                                                         <item name="payssion_payment_maybank2u_my" xsi:type="array">
                                                                             <item name="isBillingAddressRequired" xsi:type="boolean">false</item>
                                                                         </item>
@@ -115,6 +124,9 @@
                                                                         </item>
                                                                         <item name="payssion_payment_onecard" xsi:type="array">
                                                                             <item name="isBillingAddressRequired" xsi:type="boolean">false</item>
+                                                                        </item>
+                                                                        <item name="payssion_payment_ovo_id" xsi:type="array">
+                                                                            <item name="isBillingAddressRequired" xsi:type="boolean">true</item>
                                                                         </item>
                                                                         <item name="payssion_payment_p24_pl" xsi:type="array">
                                                                             <item name="isBillingAddressRequired" xsi:type="boolean">false</item>
@@ -146,10 +158,16 @@
                                                                         <item name="payssion_payment_qiwi" xsi:type="array">
                                                                             <item name="isBillingAddressRequired" xsi:type="boolean">false</item>
                                                                         </item>
+                                                                        <item name="payssion_payment_qris_id" xsi:type="array">
+                                                                            <item name="isBillingAddressRequired" xsi:type="boolean">false</item>
+                                                                        </item>
                                                                         <item name="payssion_payment_rhb_my" xsi:type="array">
                                                                             <item name="isBillingAddressRequired" xsi:type="boolean">false</item>
                                                                         </item>
-                                                                        <item name="payssion_payment_sberbank_ru" xsi:type="array">
+                                                                        <item name="payssion_payment_sberpay_ru" xsi:type="array">
+                                                                            <item name="isBillingAddressRequired" xsi:type="boolean">false</item>
+                                                                        </item>
+                                                                        <item name="payssion_payment_shopeepay_id" xsi:type="array">
                                                                             <item name="isBillingAddressRequired" xsi:type="boolean">false</item>
                                                                         </item>
                                                                         <item name="payssion_payment_shopeepay_th" xsi:type="array">
@@ -185,7 +203,7 @@
                                                                         <item name="payssion_payment_webmoney" xsi:type="array">
                                                                             <item name="isBillingAddressRequired" xsi:type="boolean">false</item>
                                                                         </item>
-                                                                        <item name="payssion_payment_yamoney" xsi:type="array">
+                                                                        <item name="payssion_payment_yoomoney_ru" xsi:type="array">
                                                                             <item name="isBillingAddressRequired" xsi:type="boolean">false</item>
                                                                         </item>
                                                                     </item>

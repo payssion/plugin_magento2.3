@@ -87,6 +87,9 @@
         <method name="payssion_payment_cimb_my">
             <allow_multiple_address>0</allow_multiple_address>
         </method>
+        <method name="payssion_payment_creditcard_id">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
         <method name="payssion_payment_creditcard_kr">
             <allow_multiple_address>0</allow_multiple_address>
         </method>
@@ -94,6 +97,9 @@
             <allow_multiple_address>0</allow_multiple_address>
         </method>
         <method name="payssion_payment_creditcard_mx">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="payssion_payment_dana_id">
             <allow_multiple_address>0</allow_multiple_address>
         </method>
         <method name="payssion_payment_davivienda_co">
@@ -159,6 +165,9 @@
         <method name="payssion_payment_klarna">
             <allow_multiple_address>0</allow_multiple_address>
         </method>
+        <method name="payssion_payment_linkaja_id">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
         <method name="payssion_payment_m1_sg">
             <allow_multiple_address>0</allow_multiple_address>
         </method>
@@ -187,6 +196,9 @@
             <allow_multiple_address>0</allow_multiple_address>
         </method>
         <method name="payssion_payment_otc_th">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="payssion_payment_ovo_id">
             <allow_multiple_address>0</allow_multiple_address>
         </method>
         <method name="payssion_payment_oxxo_mx">
@@ -231,6 +243,9 @@
         <method name="payssion_payment_qiwi">
             <allow_multiple_address>0</allow_multiple_address>
         </method>
+        <method name="payssion_payment_qris_id">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
         <method name="payssion_payment_rapipago_ar">
             <allow_multiple_address>0</allow_multiple_address>
         </method>
@@ -247,6 +262,12 @@
             <allow_multiple_address>0</allow_multiple_address>
         </method>
         <method name="payssion_payment_sberbank_ru">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="payssion_payment_sberpay_ru">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="payssion_payment_shopeepay_id">
             <allow_multiple_address>0</allow_multiple_address>
         </method>
         <method name="payssion_payment_shopeepay_th">
@@ -312,7 +333,7 @@
         <method name="payssion_payment_xl_id">
             <allow_multiple_address>0</allow_multiple_address>
         </method>
-        <method name="payssion_payment_yamoney">
+        <method name="payssion_payment_yoomoney_ru">
             <allow_multiple_address>0</allow_multiple_address>
         </method>
     </methods>

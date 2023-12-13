@@ -5,7 +5,7 @@
 
 namespace Payssion\Payment\Model\Paymentmethod;
 
-class Yamoney extends PaymentMethod
+class Danaid extends PaymentMethod
 {
-	protected $_code = 'payssion_payment_yamoney';
+	protected $_code = 'payssion_payment_dana_id';
 }

@@ -28,8 +28,14 @@
     <include path="Payssion_Payment::pm/promptpay_th.xml" />
     <include path="Payssion_Payment::pm/thaiqr_th.xml" />
     <include path="Payssion_Payment::pm/shopeepay_th.xml" />
-    <include path="Payssion_Payment::pm/doku_id.xml" />
     <include path="Payssion_Payment::pm/atmva_id.xml" />
+    <include path="Payssion_Payment::pm/qris_id.xml" />
+    <include path="Payssion_Payment::pm/ovo_id.xml" />
+    <include path="Payssion_Payment::pm/dana_id.xml" />
+    <include path="Payssion_Payment::pm/linkaja_id.xml" />
+    <include path="Payssion_Payment::pm/shopeepay_id.xml" />
+    <include path="Payssion_Payment::pm/doku_id.xml" />
+    <include path="Payssion_Payment::pm/creditcard_id.xml" />
     <include path="Payssion_Payment::pm/gcash_ph.xml" />
     <include path="Payssion_Payment::pm/dragonpay_ph.xml" />
     <include path="Payssion_Payment::pm/vietqr_vn.xml" />
