@@ -37,9 +37,11 @@ define(
             {type: 'payssion_payment_cherrycredits', component: defaultComponent},
             {type: 'payssion_payment_cht839_tw', component: defaultComponent},
             {type: 'payssion_payment_cimb_my', component: defaultComponent},
+            {type: 'payssion_payment_creditcard_id', component: defaultComponent},
             {type: 'payssion_payment_creditcard_kr', component: defaultComponent},
             {type: 'payssion_payment_creditcard_jp', component: defaultComponent},
             {type: 'payssion_payment_creditcard_mx', component: defaultComponent},
+            {type: 'payssion_payment_dana_id', component: defaultComponent},
             {type: 'payssion_payment_davivienda_co', component: defaultComponent},
             {type: 'payssion_payment_docomo_jp', component: defaultComponent},
             {type: 'payssion_payment_doku_id', component: defaultComponent},
@@ -61,6 +63,7 @@ define(
             {type: 'payssion_payment_itau_br', component: defaultComponent},
             {type: 'payssion_payment_kakaopay_kr', component: defaultComponent},
             {type: 'payssion_payment_klarna', component: defaultComponent},
+            {type: 'payssion_payment_linkaja_id', component: defaultComponent},
             {type: 'payssion_payment_m1_sg', component: defaultComponent},
             {type: 'payssion_payment_maybank2u_my', component: defaultComponent},
             {type: 'payssion_payment_molpay', component: defaultComponent},
@@ -71,6 +74,7 @@ define(
             {type: 'payssion_payment_netcash_jp', component: defaultComponent},
             {type: 'payssion_payment_onecard', component: defaultComponent},
             {type: 'payssion_payment_otc_th', component: defaultComponent},
+            {type: 'payssion_payment_ovo_id', component: defaultComponent},
             {type: 'payssion_payment_oxxo_mx', component: defaultComponent},
             {type: 'payssion_payment_p24_pl', component: defaultComponent},
             {type: 'payssion_payment_pagofacil_ar', component: defaultComponent},
@@ -85,12 +89,14 @@ define(
             {type: 'payssion_payment_promptpay_th', component: defaultComponent},
             {type: 'payssion_payment_pse_co', component: defaultComponent},
             {type: 'payssion_payment_qiwi', component: defaultComponent},
+            {type: 'payssion_payment_qris_id', component: defaultComponent},
             {type: 'payssion_payment_rapipago_ar', component: defaultComponent},
             {type: 'payssion_payment_redcompra_cl', component: defaultComponent},
             {type: 'payssion_payment_redpagos_uy', component: defaultComponent},
             {type: 'payssion_payment_rhb_my', component: defaultComponent},
             {type: 'payssion_payment_santander_br', component: defaultComponent},
-            {type: 'payssion_payment_sberbank_ru', component: defaultComponent},
+            {type: 'payssion_payment_sberpay_ru', component: defaultComponent},
+            {type: 'payssion_payment_shopeepay_id', component: defaultComponent},
             {type: 'payssion_payment_shopeepay_th', component: defaultComponent},
             {type: 'payssion_payment_singpost_sg', component: defaultComponent},
             {type: 'payssion_payment_singtel_sg', component: defaultComponent},
@@ -112,7 +118,7 @@ define(
             {type: 'payssion_payment_webmoney', component: defaultComponent},
             {type: 'payssion_payment_webpay_cl', component: defaultComponent},
             {type: 'payssion_payment_xl_id', component: defaultComponent},
-            {type: 'payssion_payment_yamoney', component: defaultComponent}
+            {type: 'payssion_payment_yoomoney_ru', component: defaultComponent}
         ];
         $.each(methods, function (k, method) {
             rendererList.push(method);
