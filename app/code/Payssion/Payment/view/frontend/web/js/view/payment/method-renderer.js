@@ -37,6 +37,7 @@ define(
             {type: 'payssion_payment_cherrycredits', component: defaultComponent},
             {type: 'payssion_payment_cht839_tw', component: defaultComponent},
             {type: 'payssion_payment_cimb_my', component: defaultComponent},
+            {type: 'payssion_payment_creditcard_br', component: defaultComponent},
             {type: 'payssion_payment_creditcard_id', component: defaultComponent},
             {type: 'payssion_payment_creditcard_kr', component: defaultComponent},
             {type: 'payssion_payment_creditcard_jp', component: defaultComponent},

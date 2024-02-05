@@ -41,6 +41,7 @@ class ConfigProvider implements ConfigProviderInterface
     	'payssion_payment_cherrycredits',
     	'payssion_payment_cht839_tw',
     	'payssion_payment_cimb_my',
+        'payssion_payment_creditcard_br',
         'payssion_payment_creditcard_id',
     	'payssion_payment_creditcard_jp',
         'payssion_payment_creditcard_kr',

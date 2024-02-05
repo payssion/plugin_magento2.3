@@ -75,6 +75,11 @@ abstract class PaymentMethod extends AbstractMethod
         	'return_url' => $return_url,
         );
         
+        $payer_ref = $this->getPayerRef($pm_id, $order);
+        if ($payer_ref) {
+            $data['payer_ref'] = $payer_ref;
+        }
+        
         $address = $order->getBillingAddress();
         if ($address) {
             $data['billing_address'] = [
@@ -111,6 +116,17 @@ abstract class PaymentMethod extends AbstractMethod
         } else {
         	throw new \Exception($response['description']);
         }
+    }
+    
+    private function getPayerRef($pm_id, $order) {
+        $pos = strpos($pm_id, '_');
+        $suffix = $pos ? substr($pm_id, $pos + 1) : null;
+        $payer_ref = null;
+        if ('br' == $suffix) {
+            //$payer_ref = $order->getData('custom_value');
+        }
+        
+        return $payer_ref;
     }
     
     /**
