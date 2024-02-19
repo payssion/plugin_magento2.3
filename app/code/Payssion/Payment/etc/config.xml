@@ -651,6 +651,17 @@
                 <allowspecific>1</allowspecific>
                 <specificcountry>ES,GR,IT</specificcountry>
             </payssion_payment_mybank>
+            <payssion_payment_naverpay_kr>
+                <active>0</active>
+                <title>Naver Pay</title>
+                <order_status>pending_payment</order_status>
+                <instructions></instructions>
+                <payment_action>order</payment_action>
+                <model>Payssion\Payment\Model\Paymentmethod\Naverpaykr</model>
+                <group>payssion_payment</group>
+                <allowspecific>1</allowspecific>
+                <specificcountry>KR</specificcountry>
+            </payssion_payment_naverpay_kr>
             <payssion_payment_neosurf>
                 <active>0</active>
                 <title>Neosurf</title>
@@ -748,6 +759,17 @@
                 <allowspecific>1</allowspecific>
                 <specificcountry>GB</specificcountry>
             </payssion_payment_paybybankapp_gb>
+            <payssion_payment_payid_au>
+                <active>0</active>
+                <title>PayID</title>
+                <order_status>pending_payment</order_status>
+                <instructions></instructions>
+                <payment_action>order</payment_action>
+                <model>Payssion\Payment\Model\Paymentmethod\Payidau</model>
+                <group>payssion_payment</group>
+                <allowspecific>1</allowspecific>
+                <specificcountry>AU</specificcountry>
+            </payssion_payment_payid_au>
             <payssion_payment_paynow_sg>
                 <active>0</active>
                 <title>PayNow</title>
