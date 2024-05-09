@@ -14,6 +14,7 @@ Enter the following commands:
 ```
 php bin/magento module:enable Payssion_Payment
 php bin/magento setup:upgrade
+php bin/magento setup:di:compile
 ```
 
 The plugin is now installed
